@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import toast, { Toaster } from "react-hot-toast";
+
 const Quiz = ({ question, index }) => {
     const { id, question: questionName, options, correctAnswer } = question;
 
@@ -10,10 +12,19 @@ const Quiz = ({ question, index }) => {
         setSelectOption(answer);
         let a = answer === correctAnswer;
         setCorrect(a);
+        if (a) {
+            toast.success("Congratulation! You are correct", {
+                icon: "👏",
+            });
+        } else {
+            toast.error("OOps! you are wrong");
+        }
     }
 
     return (
         <div className="shadow-primary-sm m-8 p-4 rounded-md text-center">
+            <Toaster />
+
             <h2 className="text-primary-400 text-xl p-4 mb-4">
                 Quiz No. {index + 1} {questionName}
             </h2>
