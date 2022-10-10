@@ -4,7 +4,9 @@ const Button = (props) => {
     return (
         <button
             {...props}
-            className={`${props.className ? props.className : ""} text-white bg-rose-400 px-4 py-2 rounded-lg `}
+            className={`${
+                props.className ? props.className : ""
+            } cursor-pointer text-white bg-primary-400 px-4 py-2 rounded-lg `}
         />
     );
 };

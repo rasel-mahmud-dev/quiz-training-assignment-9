@@ -9,5 +9,9 @@
 .active{
     font-weight: 500;
     /*border-bottom: 2px solid #ffffff;*/
-    @apply border-b-2 border-rose-500 text-rose-500
+    @apply border-b-2 border-primary-500 text-primary-500
+}
+
+.space-header{
+    height: 75px;
 }

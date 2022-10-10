@@ -3,9 +3,19 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
         extend: {
+            colors: {
+                primary: {
+                    100: "#7da885",
+                    200: "#69a274",
+                    300: "#599d66",
+                    400: "#37a449",
+                    500: "#2d8d3d",
+                },
+            },
             boxShadow: {
-                "rose-xl": "0 2px 22px 13px rgb(251 113 133 / 20%)",
-                "rose-xs": "0px 3px 13px 2px #fedbdfb0",
+                "primary-xl": "0 2px 22px 8px #37a44940",
+                "primary-xs": "0px 3px 13px 2px #37a44940",
+                "primary-sm": "0px 2px 15px -2px #37a44940",
             },
         },
     },
