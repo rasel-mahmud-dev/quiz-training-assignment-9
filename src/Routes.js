@@ -1,4 +1,4 @@
-import HomePage from "./pages/homePage/HomePage";
+import HomePage, { loadAllQuiz } from "./pages/homePage/HomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
-                // loader: teamLoader,
+                loader: loadAllQuiz,
             },
         ],
     },

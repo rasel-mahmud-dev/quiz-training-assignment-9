@@ -4,3 +4,10 @@
     margin: auto;
     padding: 0 16px
 }
+
+
+.active{
+    font-weight: 500;
+    /*border-bottom: 2px solid #ffffff;*/
+    @apply border-b-2 border-rose-500 text-rose-500
+}
