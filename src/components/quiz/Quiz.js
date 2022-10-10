@@ -1,31 +1,44 @@
-import React from "react";
-
-// {
-//     "options": [
-//     "building  User Interface",
-//     "building Database",
-//     "building User Data Flow",
-//     "building  Shop"
-// ],
-//         "id": "632800dfb0e009073fe05300",
-//         "question": "<p>React is mainly used&nbsp;for _______ (if needed, google it)</p>",
-//         "correctAnswer": "building  User Interface"
-// }
+import React, { useState } from "react";
 
 const Quiz = ({ question, index }) => {
+    const { id, question: questionName, options, correctAnswer } = question;
+
+    const [selectOption, setSelectOption] = useState("");
+    const [isCorrect, setCorrect] = useState(false);
+
+    function chooseAnswerHandler(answer) {
+        setSelectOption(answer);
+        let a = answer === correctAnswer;
+        setCorrect(a);
+    }
+
     return (
         <div className="shadow-primary-sm m-8 p-4 rounded-md text-center">
             <h2 className="text-primary-400 text-xl p-4 mb-4">
-                Quiz No. {index + 1} {question.question}
+                Quiz No. {index + 1} {questionName}
             </h2>
+
             <div className="grid grid-cols-2 gap-4">
-                {question.options.map((opt) => (
+                {options.map((opt) => (
                     <label
                         key={opt}
                         htmlFor={opt}
-                        className="border border-primary-300/30 cursor-pointer p-4 rounded-lg flex items-center  gap-2 hover:bg-primary-100/50"
+                        className={`border
+                            border-primary-300/30
+                            cursor-pointer p-4
+                            rounded-lg flex
+                            items-center
+                             gap-2
+                             hover:bg-primary-500/50
+                            ${
+                                isCorrect
+                                    ? opt === selectOption && "bg-primary-500/30"
+                                    : opt === selectOption && "bg-red-600 hover:bg-red-600"
+                            }
+                            
+                         `}
                     >
-                        <input type="radio" name={question.id} id={opt} />
+                        <input onChange={() => chooseAnswerHandler(opt)} type="radio" name={id} id={opt} />
                         <h1 className="text-primary-300">{opt}</h1>
                     </label>
                 ))}
