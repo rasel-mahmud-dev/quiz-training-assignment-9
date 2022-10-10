@@ -1,10 +1,5 @@
-# Assignment 8
+# Assignment 9
 
-### Repo: https://github.com/Programming-Hero-Web-Course4/b6-ultra-active-club-rasel-mahmud-dev
+### Repo: https://github.com/programming-hero-web-course2/b6-quiz-crackerz-rasel-mahmud-dev
 
-### Live site: https://ninja-life-activity.netlify.app/
-
-### Preview
-
-![preview app](/public/app-preview.png)
-
+### Live site: https://quiz-training.netlify.app/
