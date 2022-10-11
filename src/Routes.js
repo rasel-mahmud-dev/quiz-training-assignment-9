@@ -4,6 +4,7 @@ import App from "./App";
 import TopicQuizDetail, { loadTopicQuiz } from "./pages/topicQuizDetail/TopicQuizDetail";
 import Blogs from "./pages/blogs/Blogs";
 import NotFound from "./components/notFound/NotFound";
+import Statistics from "./pages/statistics/Statistics";
 
 const router = createBrowserRouter([
     {
@@ -22,10 +23,14 @@ const router = createBrowserRouter([
                 element: <TopicQuizDetail />,
                 loader: loadTopicQuiz,
             },
-
             {
                 path: "/blogs",
                 element: <Blogs />,
+            },
+            {
+                path: "/statistics",
+                loader: loadAllQuiz,
+                element: <Statistics />,
             },
         ],
     },
