@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from "recharts";
+import ErrorMessage from "../../components/errorMessage/ErrorMessage";
 
 const Statistics = () => {
     const allQuiz = useLoaderData();
@@ -39,28 +40,36 @@ const Statistics = () => {
 
     return (
         <div className="container">
-            <div className="mt-32 w-full flex justify-center ">
-                <div className="statistic">
-                    <BarChart width={chartWidth} height={300} data={data}>
-                        <XAxis dataKey="topicName" stroke="#3fa544" />
-                        <YAxis dataKey="totalQuiz" stroke="#3fa544" />
-                        <Tooltip wrapperStyle={{ width: 150, backgroundColor: "#ccc" }} />
-                        <Legend
-                            width={100}
-                            wrapperStyle={{
-                                top: 40,
-                                right: 20,
-                                backgroundColor: "#f5f5f5",
-                                border: "1px solid #3fa544",
-                                borderRadius: 3,
-                                lineHeight: "20px",
-                            }}
-                        />
-                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                        <Bar dataKey="totalQuiz" fill="#3fa544" barSize={30} />
-                    </BarChart>
+            {allQuiz ? (
+                <div className="mt-32 w-full flex justify-center ">
+                    <div className="statistic">
+                        <BarChart width={chartWidth} height={300} data={data}>
+                            <XAxis dataKey="topicName" stroke="#3fa544" />
+                            <YAxis dataKey="totalQuiz" stroke="#3fa544" />
+                            <Tooltip wrapperStyle={{ width: 150, backgroundColor: "#ccc" }} />
+                            <Legend
+                                width={100}
+                                wrapperStyle={{
+                                    top: 40,
+                                    right: 20,
+                                    backgroundColor: "#f5f5f5",
+                                    border: "1px solid #3fa544",
+                                    borderRadius: 3,
+                                    lineHeight: "20px",
+                                }}
+                            />
+                            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                            <Bar dataKey="totalQuiz" fill="#3fa544" barSize={30} />
+                        </BarChart>
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <ErrorMessage className="mb-10">
+                    Data Missing.
+                    <p>For Network issue</p>
+                </ErrorMessage>
+            )}
+
             <h1 className="text-center text-3xl font-semibold text-primary-400">Quiz Statistics</h1>
         </div>
     );

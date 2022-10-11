@@ -31,7 +31,7 @@ const Blogs = () => {
     return (
         <div className="max-w-screen-md mx-auto ">
             <h1 className="text-3xl font-semibold text-center mt-12">Blogs</h1>
-            <div>
+            <div className="px-4">
                 {blogs.map((blog) => (
                     <div className="shadow-primary-sm p-4 my-10 rounded-md">
                         <h1 className="text-xl font-semibold text-neutral-800">{blog.title}</h1>

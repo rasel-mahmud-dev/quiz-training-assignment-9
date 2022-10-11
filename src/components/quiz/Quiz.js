@@ -38,7 +38,7 @@ const Quiz = ({ question, index, handleAnswer }) => {
             <Toaster />
 
             <h2 className="text-primary-400 text-xl px-6 py-1 mb-4 ">
-                Quiz No. {index + 1} {questionName}
+                <span className="">Quiz No.</span> {index + 1} - {questionName.replace("<p>", "").replace("</p>", "")}
             </h2>
 
             <FontAwesomeIcon

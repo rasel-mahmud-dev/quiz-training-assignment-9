@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Quiz from "../../components/quiz/Quiz";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faCheckDouble, faList, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import ErrorMessage from "../../components/errorMessage/ErrorMessage";
 
 const TopicQuizDetail = () => {
     const topic = useLoaderData();
@@ -64,47 +65,58 @@ const TopicQuizDetail = () => {
     return (
         <div>
             {/**** quiz slats *******/}
-            <div className="bg-primary-100 p-4 mt-10 mx-4 relative md:fixed right-0 xl:right-32 rounded-md z-20">
-                <h1 className="text-white font-semibold text-xl mb-3 ">Quiz Slats</h1>
+            <div>
+                {topic ? (
+                    <div>
+                        <div className="bg-primary-100 p-4 mt-10 mx-4 relative md:fixed right-0 xl:right-32 rounded-md z-20">
+                            <h1 className="text-white font-semibold text-xl mb-3 ">Quiz Slats</h1>
 
-                <div className="text-neutral-100">
-                    <li className="list-none py-1">
-                        <FontAwesomeIcon icon={faList} className="text-white mr-1.5" />
-                        Total Quiz : <span className="font-medium">{topic.total}</span>
-                    </li>
-                    <li className="list-none py-1">
-                        <FontAwesomeIcon icon={faCheckCircle} className="text-white mr-1.5" />
-                        Correct Answer <span className="font-medium">{quizSlats.correctAnswer.length}</span>
-                    </li>
-                    <li className="list-none py-1">
-                        <FontAwesomeIcon icon={faTimesCircle} className="text-white mr-1.5" />
-                        Wrong Answer <span className="font-medium">{quizSlats.wrongAnswer.length}</span>
-                    </li>
-                    <li className="list-none py-1">
-                        <FontAwesomeIcon icon={faCheckDouble} className="text-white mr-1.5" />
-                        Total Completed{" "}
-                        <span className="font-medium">
-                            {quizSlats.wrongAnswer.length + quizSlats.correctAnswer.length} in {topic.total}
-                        </span>
-                    </li>
-                </div>
-            </div>
+                            <div className="text-neutral-100">
+                                <li className="list-none py-1">
+                                    <FontAwesomeIcon icon={faList} className="text-white mr-1.5" />
+                                    Total Quiz : <span className="font-medium">{topic.total}</span>
+                                </li>
+                                <li className="list-none py-1">
+                                    <FontAwesomeIcon icon={faCheckCircle} className="text-white mr-1.5" />
+                                    Correct Answer <span className="font-medium">{quizSlats.correctAnswer.length}</span>
+                                </li>
+                                <li className="list-none py-1">
+                                    <FontAwesomeIcon icon={faTimesCircle} className="text-white mr-1.5" />
+                                    Wrong Answer <span className="font-medium">{quizSlats.wrongAnswer.length}</span>
+                                </li>
+                                <li className="list-none py-1">
+                                    <FontAwesomeIcon icon={faCheckDouble} className="text-white mr-1.5" />
+                                    Total Completed{" "}
+                                    <span className="font-medium">
+                                        {quizSlats.wrongAnswer.length + quizSlats.correctAnswer.length} in {topic.total}
+                                    </span>
+                                </li>
+                            </div>
+                        </div>
 
-            <div className="max-w-screen-md mx-auto">
-                {topic && (
-                    <div className="mt-6 md:mt-16 mb-4">
-                        <h1 className="text-center text-3xl font-semibold text-primary-400">Quiz of {topic.name}</h1>
+                        <div className="max-w-screen-md mx-auto">
+                            <div className="mt-6 md:mt-16 mb-4">
+                                <h1 className="text-center text-3xl font-semibold text-primary-400">
+                                    Quiz of {topic.name}
+                                </h1>
 
-                        {topic?.questions.map((question, index) => (
-                            <Quiz
-                                handleAnswer={handleAnswer}
-                                quizSlats={quizSlats}
-                                question={question}
-                                key={question.id}
-                                index={index}
-                            />
-                        ))}
+                                {topic?.questions.map((question, index) => (
+                                    <Quiz
+                                        handleAnswer={handleAnswer}
+                                        quizSlats={quizSlats}
+                                        question={question}
+                                        key={question.id}
+                                        index={index}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
+                ) : (
+                    <ErrorMessage className="mb-10">
+                        Quiz Load fail.
+                        <p> Cause Network issue</p>
+                    </ErrorMessage>
                 )}
             </div>
         </div>

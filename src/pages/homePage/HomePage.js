@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/button/Button";
 import Topic from "../../components/topic/Topic";
+import ErrorMessage from "../../components/errorMessage/ErrorMessage";
 
 const HomePage = () => {
     const quiz = useLoaderData();
@@ -14,7 +15,7 @@ const HomePage = () => {
                 <div className="container">
                     <div className="overlay"></div>
                     <div className="content relative z-20 pb-20">
-                        <h2 className="text-4xl text-center font-semibold text-white py-4">
+                        <h2 className="text-4xl lg:text-5xl text-center font-semibold text-white py-4">
                             We help you learn what you love{" "}
                         </h2>
                         <p className="max-w-screen-lg mx-auto text-center mt-4 text-neutral-200 font-normal ">
@@ -34,9 +35,10 @@ const HomePage = () => {
                         {quiz ? (
                             quiz.map((item) => <Topic item={item} />)
                         ) : (
-                            <div>
-                                <h1>No Quiz found</h1>
-                            </div>
+                            <ErrorMessage className="mt-5">
+                                Topic Load fail.
+                                <p>For Network issue</p>
+                            </ErrorMessage>
                         )}
                     </div>
                 </div>
