@@ -5,7 +5,7 @@ const Header = () => {
     const navData = [
         { to: "/", label: "Topic" },
         { to: "/statistics", label: "Statistics" },
-        { to: "/blog", label: "Blog" },
+        { to: "/blogs", label: "Blogs" },
     ];
 
     return (

@@ -2,6 +2,7 @@ import HomePage, { loadAllQuiz } from "./pages/homePage/HomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import TopicQuizDetail, { loadTopicQuiz } from "./pages/topicQuizDetail/TopicQuizDetail";
+import Blogs from "./pages/blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
                 path: "/quiz/:topicId",
                 element: <TopicQuizDetail />,
                 loader: loadTopicQuiz,
+            },
+
+            {
+                path: "/blogs",
+                element: <Blogs />,
             },
         ],
     },
