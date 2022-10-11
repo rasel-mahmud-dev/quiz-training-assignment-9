@@ -15,3 +15,26 @@
 .space-header{
     height: 75px;
 }
+
+.home-banner{
+    background-image: url("https://www.proprofs.com/c/wp-content/uploads/2019/01/Improve-Employee-Training-With-Quizzes.png");
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.home-banner .overlay{
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background: #0000008f;
+    position: absolute;
+    display: block;
+    z-index: 10;
+}
