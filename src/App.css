@@ -45,3 +45,11 @@
 .option-error h1{
     @apply text-white;
 }
+
+
+@media screen and (max-width : 380px) {
+    /*.statistic{*/
+    /*    width: 300px;*/
+    /*    overflow: auto;*/
+    /*}*/
+}

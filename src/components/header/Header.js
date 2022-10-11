@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import "./header.css";
 
 const Header = () => {
     const navData = [
@@ -7,6 +10,8 @@ const Header = () => {
         { to: "/statistics", label: "Statistics" },
         { to: "/blogs", label: "Blogs" },
     ];
+
+    const [isMobileExpand, setMobileExpand] = useState(false);
 
     return (
         <>
@@ -20,7 +25,11 @@ const Header = () => {
                             </span>
                         </Link>
                     </div>
-                    <nav className="flex items-center gap-x-4">
+                    <nav
+                        className={`flex items-center gap-x-4 main-nav ${
+                            isMobileExpand ? "mobile-expand" : "mobile-collapse"
+                        }`}
+                    >
                         {navData.map((navItem, index) => (
                             <li key={index} className="list-none py-6">
                                 <NavLink end={true} className="text-primary-400" to={navItem.to}>
@@ -29,6 +38,12 @@ const Header = () => {
                             </li>
                         ))}
                     </nav>
+
+                    <FontAwesomeIcon
+                        onClick={() => setMobileExpand(!isMobileExpand)}
+                        className="block md:hidden text-xl py-6 "
+                        icon={faBars}
+                    />
                 </div>
             </header>
             <div className="space-header"></div>
