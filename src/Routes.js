@@ -3,12 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import TopicQuizDetail, { loadTopicQuiz } from "./pages/topicQuizDetail/TopicQuizDetail";
 import Blogs from "./pages/blogs/Blogs";
+import NotFound from "./components/notFound/NotFound";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
         // loader: rootLoader,
+        errorElement: <NotFound />,
         children: [
             {
                 path: "/",

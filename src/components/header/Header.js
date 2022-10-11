@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useMatch } from "react-router-dom";
 
 const Header = () => {
     const navData = [
@@ -7,6 +7,10 @@ const Header = () => {
         { to: "/statistics", label: "Statistics" },
         { to: "/blogs", label: "Blogs" },
     ];
+
+    let activeStyle = {
+        border: "1px solid red",
+    };
 
     return (
         <>
@@ -21,7 +25,7 @@ const Header = () => {
                     <nav className="flex items-center gap-x-4">
                         {navData.map((navItem, index) => (
                             <li key={index} className="list-none py-6">
-                                <NavLink className="text-primary-400" to={navItem.to}>
+                                <NavLink end={true} className="text-primary-400" to={navItem.to}>
                                     {navItem.label}
                                 </NavLink>
                             </li>
