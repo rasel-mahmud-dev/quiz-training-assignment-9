@@ -38,3 +38,10 @@
     display: block;
     z-index: 10;
 }
+
+.option-success h1{
+    @apply text-black;
+}
+.option-error h1{
+    @apply text-white;
+}

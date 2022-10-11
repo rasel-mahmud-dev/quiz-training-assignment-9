@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
-const Quiz = ({ question, index }) => {
+const Quiz = ({ question, index, handleAnswer }) => {
     const { id, question: questionName, options, correctAnswer } = question;
 
     const [selectedOption, setSelectedOption] = useState("");
@@ -14,9 +14,9 @@ const Quiz = ({ question, index }) => {
 
     function chooseAnswerHandler(answer) {
         setSelectedOption(answer);
-        let a = answer === correctAnswer;
-        setCorrect(a);
-        if (a) {
+        let isCorrectAns = answer === correctAnswer;
+        setCorrect(isCorrectAns);
+        if (isCorrectAns) {
             toast.success("Congratulation! You are correct", {
                 icon: "👏",
             });
@@ -24,6 +24,7 @@ const Quiz = ({ question, index }) => {
             toast.error("OOps! you are wrong");
         }
         setAnsweredByEyeIcon(false);
+        handleAnswer(id, isCorrectAns);
     }
 
     function handleShowCorrectAns() {
@@ -60,8 +61,8 @@ const Quiz = ({ question, index }) => {
                              hover:bg-primary-500/50
                             ${
                                 isCorrect
-                                    ? opt === selectedOption && "bg-primary-500/30"
-                                    : opt === selectedOption && "bg-red-600 hover:bg-red-600"
+                                    ? opt === selectedOption && "bg-primary-500/30 option-success"
+                                    : opt === selectedOption && "bg-red-600 hover:bg-red-600 option-error"
                             }
                             
                          `}
