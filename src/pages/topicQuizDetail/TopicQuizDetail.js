@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Quiz from "../../components/quiz/Quiz";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListAlt } from "@fortawesome/free-regular-svg-icons";
 import { faCheckCircle, faCheckDouble, faList, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 
 const TopicQuizDetail = () => {

@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from "recharts";
 
-const Statistics = (props) => {
+const Statistics = () => {
     const allQuiz = useLoaderData();
 
     const [data, setSata] = useState(0);

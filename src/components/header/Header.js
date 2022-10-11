@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useLocation, useMatch } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
     const navData = [
@@ -8,18 +8,16 @@ const Header = () => {
         { to: "/blogs", label: "Blogs" },
     ];
 
-    let activeStyle = {
-        border: "1px solid red",
-    };
-
     return (
         <>
             <header className="bg-white shadow-primary-xl fixed top-0 left-0 w-full z-30">
                 <div className="container flex justify-between items-center">
                     <div className="logo">
                         <Link to="/">
-                            {" "}
-                            <h2 className="text-primary-400 font-bold text-xl">Quiz Training</h2>
+                            <span className="flex items-center">
+                                <img className="w-6 mr-1" src="/logo.png" alt="" />{" "}
+                                <h2 className="text-primary-400 font-bold text-xl">Quiz Training</h2>
+                            </span>
                         </Link>
                     </div>
                     <nav className="flex items-center gap-x-4">
