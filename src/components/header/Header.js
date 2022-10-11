@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -13,9 +13,21 @@ const Header = () => {
 
     const [isMobileExpand, setMobileExpand] = useState(false);
 
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            setMobileExpand(false);
+        }
+    }
+
+    useEffect(() => {
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <>
-            <header className="bg-white shadow-none md:shadow-primary-xl fixed top-0 left-0 w-full z-30">
+            <header className="bg-white shadow-primary-xl fixed top-0 left-0 w-full z-30">
                 <div className="container flex justify-between items-center">
                     <div className="logo">
                         <Link to="/">

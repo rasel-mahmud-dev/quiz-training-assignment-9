@@ -34,10 +34,10 @@ const Quiz = ({ question, index, handleAnswer }) => {
     }
 
     return (
-        <div className="shadow-primary-sm m-8 p-4 rounded-md text-center relative">
+        <div className="shadow-primary-sm my-8 mx-4 p-2 md:p-4 rounded-md text-center relative">
             <Toaster />
 
-            <h2 className="text-primary-400 text-xl px-6 py-1 mb-4 ">
+            <h2 className="text-primary-400 text-xl px-4 md:px-6 py-1 mb-4 ">
                 <span className="">Quiz No.</span> {index + 1} - {questionName.replace("<p>", "").replace("</p>", "")}
             </h2>
 
