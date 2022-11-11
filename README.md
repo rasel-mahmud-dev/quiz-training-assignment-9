@@ -2,7 +2,6 @@
 
 ## Assignment 9
 
-### Github Repo: https://github.com/programming-hero-web-course2/b6-quiz-crackerz-rasel-mahmud-dev
 
 ### Live site: https://quiz-training.netlify.app/
 
